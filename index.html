@@ -10,16 +10,42 @@
       integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
       crossorigin="anonymous"
     />
+    <link rel="stylesheet" href="./css/fonts.css" />
     <link rel="stylesheet" href="./css/main.css" />
+    <link rel="stylesheet" href="./css/nav.css" />
   </head>
 
   <body>
+    <nav id="nav" class="navbar fixed-top navbar-expand bg-transparent">
+      <div id="nav__wrapper" class="container">
+        <div id="nav__wrapper--menu">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link text-white" aria-current="page" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-white" href="#">Preferences</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-white" href="#">Records</a>
+            </li>
+          </ul>
+        </div>
+        <div id="nav__wrapper--authentication">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link text-white" aria-current="page" href="#">Logout</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
     <main id="main__page">
       <div id="main__page--wrapper">
         <section id="main__page--wrapper--section">
           <h1 id="main__page--title">UFO Battle</h1>
         </section>
-        <button id="main__page--play--button" type="button" class="btn btn-warning">Jugar</button>
+        <button id="main__page--play--button" type="button" class="btn btn-warning">Play</button>
       </div>
     </main>
     <script
