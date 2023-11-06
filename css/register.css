@@ -1,0 +1,48 @@
+#register__page {
+  background-image: url('../assets/main_background.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 100vh;
+  width: 100vw;
+}
+
+#register__page > #register__page--wrapper {
+  background-color: rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  display: flex;
+  width: 100vw;
+}
+
+#register__page > #register__page--wrapper > #register__page--wrapper--section {
+  color: white;
+  font-family: 'AmericanCaptain';
+}
+
+#register__page > #register__page--wrapper > #register__page--wrapper--section > #register__page--title {
+  font-family: 'MarineCorpsPersonalUsed';
+  text-align: center;
+  font-size: 5rem;
+}
+
+#register__page > #register__page--wrapper > #register__page--wrapper--section > #register__page--form {
+  margin-top: 2rem;
+  font-size: 1.25rem;
+}
+
+#register__page
+  > #register__page--wrapper
+  > #register__page--wrapper--section
+  > #register__page--form
+  > #register__page--button,
+#register__page
+  > #register__page--wrapper
+  > #register__page--wrapper--section
+  > #register__page--form
+  > #register__page--register {
+  margin-top: 1rem;
+  font-size: 1.5rem;
+}
