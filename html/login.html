@@ -20,26 +20,20 @@
           <h1 id="login__page--title">Login</h1>
           <form id="login__page--form">
             <div class="mb-3">
-              <label for="exampleInputEmail1" class="form-label">Email address</label>
-              <input
-                type="email"
-                class="form-control"
-                id="exampleInputEmail1"
-                aria-describedby="emailHelp"
-                value="12345@gmail.com"
-              />
+              <label for="username" class="form-label">Username</label>
+              <input type="text" class="form-control" id="username" name="username" required autofocus />
             </div>
             <div class="mb-3">
-              <label for="exampleInputPassword1" class="form-label">Password</label>
-              <input type="password" class="form-control" id="exampleInputPassword1" value="12345" />
+              <label for="password" class="form-label">Password</label>
+              <input type="password" class="form-control" id="password" name="password" required />
             </div>
             <div class="mb-3 form-check">
               <input type="checkbox" class="form-check-input" id="exampleCheck1" />
               <label class="form-check-label" for="exampleCheck1">Check me out</label>
             </div>
-            <a href="../index.html" id="login__page--button" type="submit" class="btn btn-warning w-100" value="Login"
-              >Login</a
-            >
+            <button href="../index.html" id="login__page--button" type="submit" class="btn btn-warning w-100" disabled>
+              Login
+            </button>
             <a href="../html/signup.html" id="login__page--register" type="submit" class="btn w-100 text-white"
               >Don't have account? Register</a
             >
@@ -53,5 +47,6 @@
       integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
       crossorigin="anonymous"
     ></script>
+    <script type="module" src="../js/controllers/loginController.js"></script>
   </body>
 </html>

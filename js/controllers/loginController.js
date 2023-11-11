@@ -1,12 +1,11 @@
-import registerUser from '../services/registerService.js';
+import loginUser from '../services/loginService.js';
 
 window.addEventListener('DOMContentLoaded', () => {
   'use strict';
 
-  let form = document.getElementById('register__page--form');
-  let buttonSubmit = document.getElementById('register__page--button');
+  let form = document.getElementById('login__page--form');
+  let buttonSubmit = document.getElementById('login__page--button');
   let inputs = document.querySelectorAll('input');
-  let passwordInputs = document.querySelectorAll('input[type=password]');
 
   function areAllInputsFilled() {
     let numberInputsNotValid = 0;
@@ -20,32 +19,24 @@ window.addEventListener('DOMContentLoaded', () => {
     return numberInputsNotValid === 0 ? true : false;
   }
 
-  function arePasswordsValuesEqual() {
-    return passwordInputs[0].value === passwordInputs[1].value;
-  }
-
   form.addEventListener('submit', async (event) => {
     event.preventDefault();
 
-    if (!arePasswordsValuesEqual()) {
-      alert("Passwords don't match");
-      return;
-    }
-
     try {
       let username = document.getElementById('username').value;
-      let email = document.getElementById('email').value;
       let password = document.getElementById('password').value;
 
-      let data = { username, email, password };
-      let message = await registerUser(data);
+      let data = { username, password };
+      let message = await loginUser(data);
 
-      if (message) {
+      if (!message.includes('Bearer')) {
         alert(message);
         return;
       }
 
-      window.location.href = '../../html/login.html';
+      let token = message.split(' ')[1];
+      localStorage.setItem('token', token);
+      window.location.href = '../../index.html';
     } catch (error) {
       alert('Unexpected error has happened');
     }
