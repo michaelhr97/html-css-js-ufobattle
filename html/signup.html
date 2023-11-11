@@ -20,31 +20,22 @@
           <h1 id="register__page--title">Sign up</h1>
           <form id="register__page--form">
             <div class="mb-3">
-              <label for="exampleInputEmail1" class="form-label">Email address</label>
-              <input
-                type="email"
-                class="form-control"
-                id="exampleInputEmail1"
-                aria-describedby="emailHelp"
-                value="12345@gmail.com"
-              />
+              <label for="username" class="form-label">Username</label>
+              <input type="text" class="form-control" id="username" name="username" required autofocus />
             </div>
             <div class="mb-3">
-              <label for="exampleInputPassword1" class="form-label">Password</label>
-              <input type="password" class="form-control" id="exampleInputPassword1" value="12345" />
+              <label for="email" class="form-label">Email address</label>
+              <input type="email" class="form-control" id="email" name="email" required />
             </div>
             <div class="mb-3">
-              <label for="exampleInputPassword2" class="form-label">Confirm Password</label>
-              <input type="password" class="form-control" id="exampleInputPassword2" value="12345" />
+              <label for="password" class="form-label">Password</label>
+              <input type="password" class="form-control" id="password" name="password" required />
             </div>
-            <a
-              href="./login.html"
-              id="register__page--button"
-              type="submit"
-              class="btn btn-warning w-100"
-              value="register"
-              >Sign up</a
-            >
+            <div class="mb-3">
+              <label for="confirmPassword" class="form-label">Confirm Password</label>
+              <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" required />
+            </div>
+            <button id="register__page--button" type="submit" class="btn btn-warning w-100" disabled>Sign up</button>
             <a href="./login.html" id="register__page--register" type="submit" class="btn w-100 text-white"
               >Already have account? Login</a
             >
@@ -58,5 +49,6 @@
       integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
       crossorigin="anonymous"
     ></script>
+    <script type="module" src="../js/controllers/registerController.js"></script>
   </body>
 </html>
