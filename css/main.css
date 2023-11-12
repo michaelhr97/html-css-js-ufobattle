@@ -1,13 +1,4 @@
-#main__page {
-  background-image: url('../assets/main_background.jpg');
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  height: 100vh;
-  width: 100vw;
-}
-
-#main__page > #main__page--wrapper {
+#main__page--wrapper {
   background-color: rgba(0, 0, 0, 0.5);
   justify-content: center;
   flex-direction: column;
@@ -17,7 +8,7 @@
   width: 100vw;
 }
 
-#main__page > #main__page--wrapper > #main__page--wrapper--section {
+#main__page--wrapper > #main__page--section {
   background-color: rgba(0, 0, 0, 0.8);
   font-family: 'MarineCorpsPersonalUsed';
   border: 5px solid white;
@@ -26,11 +17,11 @@
   color: white;
 }
 
-#main__page > #main__page--wrapper > #main__page--wrapper--section > #main__page--title {
+#main__page--wrapper > #main__page--section > #main__page--title {
   font-size: 4rem;
 }
 
-#main__page > #main__page--wrapper > #main__page--play--button {
+#main__page--wrapper > #main__page--play--button {
   font-family: 'MarineCorpsPersonalUsed';
   margin-top: 2rem;
   border-radius: 0;

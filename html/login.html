@@ -10,15 +10,14 @@
       integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="../css/fonts.css" />
-    <link rel="stylesheet" href="../css/login.css" />
+    <link rel="stylesheet" href="../css/styles.css" />
   </head>
   <body>
-    <main id="login__page">
-      <div id="login__page--wrapper">
-        <section id="login__page--wrapper--section">
-          <h1 id="login__page--title">Login</h1>
-          <form id="login__page--form">
+    <main class="main">
+      <div class="wrapper">
+        <section class="main__section">
+          <h1 class="main__section--title">Login</h1>
+          <form id="login__page--form" class="main__section--form">
             <div class="mb-3">
               <label for="username" class="form-label">Username</label>
               <input type="text" class="form-control" id="username" name="username" required autofocus />
@@ -27,14 +26,10 @@
               <label for="password" class="form-label">Password</label>
               <input type="password" class="form-control" id="password" name="password" required />
             </div>
-            <div class="mb-3 form-check">
-              <input type="checkbox" class="form-check-input" id="exampleCheck1" />
-              <label class="form-check-label" for="exampleCheck1">Check me out</label>
-            </div>
             <button href="../index.html" id="login__page--button" type="submit" class="btn btn-warning w-100" disabled>
               Login
             </button>
-            <a href="../html/signup.html" id="login__page--register" type="submit" class="btn w-100 text-white"
+            <a href="../html/signup.html" id="login__page--register" class="w-100 text-white"
               >Don't have account? Register</a
             >
           </form>

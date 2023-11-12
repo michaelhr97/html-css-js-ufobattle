@@ -10,8 +10,7 @@
       integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="../css/fonts.css" />
-    <link rel="stylesheet" href="../css/nav.css" />
+    <link rel="stylesheet" href="../css/styles.css" />
     <link rel="stylesheet" href="../css/preferences.css" />
   </head>
   <body>
@@ -20,10 +19,10 @@
         <div id="nav__wrapper--menu">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link text-white" aria-current="page" href="#">Home</a>
+              <a class="nav-link text-white" aria-current="page" href="/index.html">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-white" href="#">Preferences</a>
+              <a class="nav-link text-white active" href="/html/preferences.html">Preferences</a>
             </li>
             <li class="nav-item">
               <a class="nav-link text-white" href="#">Records</a>
@@ -39,35 +38,22 @@
         </div>
       </div>
     </nav>
-    <main id="preferences__page">
-      <div id="preferences__page--wrapper">
-        <section id="preferences__page--wrapper--section">
-          <h1 id="preferences__page--title">preferences</h1>
-          <form id="preferences__page--form">
+    <main class="main">
+      <div class="wrapper">
+        <section class="main__section">
+          <h1 id="preferences__title" class="main__section--title">preferences</h1>
+          <form id="preference__page--form" class="main__section--form">
             <div class="preferences__form--data d-flex flex-row justify-content-between mb-3">
-              <label for="exampleInputEmail1" class="form-label">Number of UFO's</label>
-              <input
-                type="number"
-                class="form-control"
-                id="exampleInputEmail1"
-                aria-describedby="emailHelp"
-                value="6"
-                min="1"
-                max="20"
-              />
+              <label for="totalufo" class="form-label">Number of UFO's</label>
+              <input type="number" class="preferences__data" id="totalufo" name="totalufo" min="1" max="25" />
             </div>
             <div class="preferences__form--data d-flex flex-row justify-content-between mb-3">
-              <label for="exampleInputPassword1" class="form-label">Time (seconds)</label>
-              <input type="number" class="form-control" id="exampleInputPassword1" value="60" min="20" max="300" />
+              <label for="time" class="form-label">Time (seconds)</label>
+              <input type="number" class="preferences__data" id="time" name="time" min="20" />
             </div>
-            <a
-              href="../index.html"
-              id="preferences__page--button"
-              type="submit"
-              class="btn btn-warning w-100"
-              value="Login"
-              >Save preferences</a
-            >
+            <button href="../index.html" id="preferences__page--button" type="submit" class="btn btn-warning w-100">
+              Save preferences
+            </button>
           </form>
         </section>
       </div>
@@ -78,5 +64,6 @@
       integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
       crossorigin="anonymous"
     ></script>
+    <script type="module" src="/js/controllers/preferenceController.js"></script>
   </body>
 </html>

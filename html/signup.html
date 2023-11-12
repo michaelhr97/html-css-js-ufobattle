@@ -10,15 +10,14 @@
       integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="../css/fonts.css" />
-    <link rel="stylesheet" href="../css/register.css" />
+    <link rel="stylesheet" href="../css/styles.css" />
   </head>
   <body>
-    <main id="register__page">
-      <div id="register__page--wrapper">
-        <section id="register__page--wrapper--section">
-          <h1 id="register__page--title">Sign up</h1>
-          <form id="register__page--form">
+    <main class="main">
+      <div class="wrapper">
+        <section class="main__section">
+          <h1 class="main__section--title">Sign up</h1>
+          <form id="register__page--form" class="main__section--form">
             <div class="mb-3">
               <label for="username" class="form-label">Username</label>
               <input type="text" class="form-control" id="username" name="username" required autofocus />
@@ -36,7 +35,7 @@
               <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" required />
             </div>
             <button id="register__page--button" type="submit" class="btn btn-warning w-100" disabled>Sign up</button>
-            <a href="./login.html" id="register__page--register" type="submit" class="btn w-100 text-white"
+            <a href="./login.html" id="register__page--register" type="submit" class="w-100 text-white"
               >Already have account? Login</a
             >
           </form>
