@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>UFO Battle - Preferences</title>
+    <title>UFO Battle - Records</title>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -11,7 +11,7 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="../css/styles.css" />
-    <link rel="stylesheet" href="../css/preferences.css" />
+    <link rel="stylesheet" href="../css/records.css" />
   </head>
   <body>
     <nav id="nav" class="navbar fixed-top navbar-expand bg-transparent">
@@ -22,10 +22,10 @@
               <a class="nav-link text-white" aria-current="page" href="/index.html">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-white active" href="/html/preferences.html">Preferences</a>
+              <a class="nav-link text-white" href="/html/preferences.html">Preferences</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-white" href="/html/records.html">Records</a>
+              <a class="nav-link text-white active" href="/html/records.html">Records</a>
             </li>
           </ul>
         </div>
@@ -41,24 +41,18 @@
     <main class="main">
       <div class="wrapper">
         <section class="main__section">
-          <h1 id="preferences__title" class="main__section--title">preferences</h1>
-          <form id="preference__page--form" class="main__section--form">
-            <div class="preferences__form--data d-flex flex-row justify-content-between mb-3">
-              <label for="totalufo" class="form-label">Number of UFO's</label>
-              <input type="number" class="preferences__data" id="totalufo" name="totalufo" min="1" max="5" />
-            </div>
-            <div class="preferences__form--data d-flex flex-row justify-content-between mb-3">
-              <label for="time" class="form-label">Time (seconds)</label>
-              <select type="number" class="preferences__data" id="time" name="time">
-                <option value="60">60</option>
-                <option value="120">120</option>
-                <option value="180">180</option>
-              </select>
-            </div>
-            <button href="../index.html" id="preferences__page--button" type="submit" class="btn btn-warning w-100">
-              Save preferences
-            </button>
-          </form>
+          <h1 class="main__section--title">Records</h1>
+          <table id="records__table">
+            <thead id="records__table--head">
+              <th class="records__table--head--option">#</th>
+              <th class="records__table--head--option">User</th>
+              <th class="records__table--head--option">Points</th>
+              <th class="records__table--head--option">UFOs</th>
+              <th class="records__table--head--option">Secs.</th>
+              <th class="records__table--head--option">Date</th>
+            </thead>
+            <tbody id="records__table--body"></tbody>
+          </table>
         </section>
       </div>
     </main>
@@ -68,6 +62,6 @@
       integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
       crossorigin="anonymous"
     ></script>
-    <script type="module" src="/js/controllers/preferenceController.js"></script>
+    <script type="module" src="/js/controllers/recordController.js"></script>
   </body>
 </html>

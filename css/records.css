@@ -1,0 +1,16 @@
+#records__table {
+  width: 100%;
+  font-size: 1.5rem;
+  text-align: end;
+  margin-top: 2.5rem;
+}
+
+#records__table--head {
+  font-size: 2rem;
+  color: var(--orange);
+}
+
+.records__table--head--option,
+.records__table--body--option {
+  padding: 2px 25px;
+}

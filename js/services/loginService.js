@@ -1,6 +1,7 @@
 async function loginUser(credentials) {
   const username = credentials.username;
   const password = credentials.password;
+
   const URL = `http://wd.etsisi.upm.es:10000/users/login?username=${username}&password=${password}`;
 
   let myHeaders = new Headers();
