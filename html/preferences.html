@@ -45,11 +45,15 @@
           <form id="preference__page--form" class="main__section--form">
             <div class="preferences__form--data d-flex flex-row justify-content-between mb-3">
               <label for="totalufo" class="form-label">Number of UFO's</label>
-              <input type="number" class="preferences__data" id="totalufo" name="totalufo" min="1" max="25" />
+              <input type="number" class="preferences__data" id="totalufo" name="totalufo" min="1" max="5" />
             </div>
             <div class="preferences__form--data d-flex flex-row justify-content-between mb-3">
               <label for="time" class="form-label">Time (seconds)</label>
-              <input type="number" class="preferences__data" id="time" name="time" min="20" />
+              <select type="number" class="preferences__data" id="time" name="time">
+                <option value="60">60</option>
+                <option value="120">120</option>
+                <option value="180">180</option>
+              </select>
             </div>
             <button href="../index.html" id="preferences__page--button" type="submit" class="btn btn-warning w-100">
               Save preferences
