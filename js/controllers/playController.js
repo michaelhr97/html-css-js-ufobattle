@@ -1,11 +1,13 @@
 window.addEventListener('DOMContentLoaded', () => {
-  'use strict';
+  ('use strict');
+
+  const DEFAULT_INITIAL_TIME = 60;
+  const DEFAULT_INITIAL_NUMBER_UFOS = 1;
 
   let pid;
-  let time = document.getElementById('time__data');
-  let points = document.getElementById('points__data');
-  let ufoContainer = document.getElementById('play__ufos');
-  let score = 0;
+  let time = document.getElementById('time');
+  let score = document.getElementById('score');
+  let currentScore = 0;
   let horizontalStep = 5;
   let verticalStep = 5;
   let missilelaunched = false;
@@ -13,30 +15,28 @@ window.addEventListener('DOMContentLoaded', () => {
   let theufos = [];
   let ufoHorizontalSteps = [];
 
-  function setUpGame() {
-    let initialTime = localStorage.getItem('time') || 60;
+  function setUp() {
+    let initialTime = localStorage.getItem('time') || DEFAULT_INITIAL_TIME;
     time.innerText = initialTime;
-    points.innerText = score;
 
-    let initialUfos = localStorage.getItem('totalufo') || 1;
+    document.getElementById('score').innerText = currentScore;
 
+    let initialUfos = localStorage.getItem('totalufo') || DEFAULT_INITIAL_NUMBER_UFOS;
+    let ufoContainer = document.getElementById('play__ufos');
     for (let i = 0; i < initialUfos; i++) {
       let ufo = document.createElement('img');
       ufo.classList.add('ufo');
-
       ufo.src = '../assets/ufo.png';
-
       ufo.style.left = `${Math.floor(Math.random() * window.innerWidth)}px`;
       ufo.style.bottom = `${Math.floor(Math.random() * window.innerHeight)}px`;
-
       ufo.style.width = '60px';
 
       ufoContainer.appendChild(ufo);
     }
-    ufoHorizontalSteps = Array.from({ length: initialUfos }, () => horizontalStep);
 
+    ufoHorizontalSteps = Array.from({ length: initialUfos }, () => horizontalStep);
     theufos = document.querySelectorAll('.ufo');
-    launchUFOs();
+    console.log(theufos);
   }
 
   function updateTimer() {
@@ -51,7 +51,14 @@ window.addEventListener('DOMContentLoaded', () => {
   }
 
   function updateScore() {
-    points.innerText = score;
+    score.innerText = currentScore;
+  }
+
+  function play() {
+    setUp();
+    updateTimer();
+    updateScore();
+    launchUFOs();
   }
 
   function launchUFOs() {
@@ -62,7 +69,6 @@ window.addEventListener('DOMContentLoaded', () => {
   function moveUFO(ufo, index) {
     let rightWindowLimit = window.innerWidth;
     let ufoComputedStyle = window.getComputedStyle(ufo);
-
     let ufoHorizontalPosition = Number.parseInt(ufoComputedStyle.getPropertyValue('left'));
     let ufoWidth = Number.parseInt(ufoComputedStyle.getPropertyValue('width'));
 
@@ -71,7 +77,6 @@ window.addEventListener('DOMContentLoaded', () => {
     }
 
     ufoHorizontalPosition += ufoHorizontalSteps[index];
-
     ufo.style.left = `${ufoHorizontalPosition}px`;
   }
 
@@ -88,7 +93,6 @@ window.addEventListener('DOMContentLoaded', () => {
   function moveMissileRight() {
     let rightWindowLimit = window.innerWidth;
     let missileComputedStyle = window.getComputedStyle(themissile);
-
     let missileHorizontalPosition = Number.parseInt(missileComputedStyle.getPropertyValue('left'));
     let missileWidth = Number.parseInt(missileComputedStyle.getPropertyValue('width'));
 
@@ -151,7 +155,7 @@ window.addEventListener('DOMContentLoaded', () => {
       missilelaunched = false;
 
       if (!result.target.hitProcessed) {
-        score += 100;
+        currentScore += 100;
         result.target.hitProcessed = true;
         updateScore();
       }
@@ -159,6 +163,11 @@ window.addEventListener('DOMContentLoaded', () => {
       result.target.src = '../../assets/explosion.gif';
       setTimeout(() => {
         result.target.remove();
+        theufos = document.querySelectorAll('.ufo');
+        if (theufos.length === 0) {
+          alert('Game finished!');
+          play();
+        }
       }, 1000);
     }
   }
@@ -190,6 +199,5 @@ window.addEventListener('DOMContentLoaded', () => {
   pid = setInterval(updateTimer, 1000);
 
   document.addEventListener('keydown', keyboardController, false);
-
-  setUpGame();
+  play();
 });
