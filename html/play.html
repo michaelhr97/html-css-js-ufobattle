@@ -17,21 +17,13 @@
     <main class="main">
       <div class="wrapper">
         <section id="play__section" class="main__section">
-          <img
-            id="missile"
-            src="../assets/missile.png"
-            style="left: 300px; bottom: 10px; height: 70px; width: 40px; z-index: 10"
-          />
+          <img id="missile" src="../assets/missile.png" />
 
-          <div class="play__ufos">
-            <!-- <img class="ufo" src="../assets/ufo.png" style="left: 0px; bottom: 550px; width: 60px" /> -->
-            <img class="ufo" src="../assets/ufo.png" style="left: 10px; bottom: 150px; width: 60px" />
-            <img class="ufo" src="../assets/ufo.png" style="left: 200px; bottom: 750px; width: 60px" />
-          </div>
+          <div id="play__ufos"></div>
 
           <div id="play__records">
-            <p id="time">Time: 20 sec</p>
-            <p id="points">Score: 200</p>
+            <p id="time">Time: <span id="time__data"></span> sec</p>
+            <p id="points">Score: <span id="points__data"></span></p>
           </div>
         </section>
       </div>
@@ -42,5 +34,6 @@
       integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
       crossorigin="anonymous"
     ></script>
+    <script type="module" src="/js/controllers/playController.js"></script>
   </body>
 </html>

@@ -9,8 +9,16 @@
   bottom: 0px;
   left: 300px;
   height: 70px;
-  width: 40px;
-  z-index: 100;
+  z-index: 10;
+}
+
+.ufo {
+  position: absolute;
+}
+
+#play__ufos {
+  height: 100%;
+  position: relative;
 }
 
 #play__records {
@@ -26,4 +34,5 @@
   font-size: 5.25rem;
   color: var(--orange);
   opacity: 0.45;
+  z-index: 10;
 }
