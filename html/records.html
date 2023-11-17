@@ -1,68 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>UFO Battle - Records</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
-      crossorigin="anonymous"
-    />
-    <link rel="stylesheet" href="../css/styles.css" />
-    <link rel="stylesheet" href="../css/records.css" />
-  </head>
-  <body>
-    <nav id="nav" class="navbar fixed-top navbar-expand bg-transparent">
-      <div id="nav__wrapper" class="container">
-        <div id="nav__wrapper--menu">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <a class="nav-link text-white" aria-current="page" href="/index.html">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link text-white" href="/html/preferences.html">Preferences</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link text-white active" href="/html/records.html">Records</a>
-            </li>
-          </ul>
-        </div>
-        <div id="nav__wrapper--authentication">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <a class="nav-link text-white" aria-current="page" href="./html/preferences.html">Logout</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-    <main class="main">
-      <div class="wrapper">
-        <section class="main__section">
-          <h1 class="main__section--title">Records</h1>
-          <table id="records__table">
-            <thead id="records__table--head">
-              <th class="records__table--head--option">#</th>
-              <th class="records__table--head--option">User</th>
-              <th class="records__table--head--option">Points</th>
-              <th class="records__table--head--option">UFOs</th>
-              <th class="records__table--head--option">Secs.</th>
-              <th class="records__table--head--option">Date</th>
-            </thead>
-            <tbody id="records__table--body"></tbody>
-          </table>
-        </section>
-      </div>
-    </main>
 
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-      crossorigin="anonymous"
-    ></script>
-    <script type="module" src="/js/controllers/recordController.js"></script>
-    <script type="module" src="/js/controllers/navController.js"></script>
-  </body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>UFO Battle - Records</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+  <link rel="stylesheet" href="../css/styles.css" />
+  <link rel="stylesheet" href="../css/records.css" />
+</head>
+
+<body>
+  <nav id="nav" class="navbar fixed-top navbar-expand bg-transparent">
+    <div id="nav__wrapper" class="container">
+      <div id="nav__wrapper--menu">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link text-white" aria-current="page" href="/index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="/html/preferences.html">Preferences</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white active" href="/html/records.html">Records</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="/html/play.html">Play</a>
+          </li>
+        </ul>
+      </div>
+      <div id="nav__wrapper--authentication">
+        <ul id="navbar__nav-authentication" class="navbar-nav me-auto mb-2 mb-lg-0"></ul>
+      </div>
+    </div>
+  </nav>
+  <main class="main">
+    <div class="wrapper">
+      <section class="main__section">
+        <h1 class="main__section--title">Records</h1>
+        <table id="records__table">
+          <thead id="records__table--head">
+            <th class="records__table--head--option">#</th>
+            <th class="records__table--head--option">User</th>
+            <th class="records__table--head--option">Points</th>
+            <th class="records__table--head--option">UFOs</th>
+            <th class="records__table--head--option">Secs.</th>
+            <th class="records__table--head--option">Date</th>
+          </thead>
+          <tbody id="records__table--body"></tbody>
+        </table>
+      </section>
+    </div>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"></script>
+  <script type="module" src="/js/controllers/recordController.js"></script>
+  <script type="module" src="/js/controllers/navController.js"></script>
+</body>
+
 </html>
