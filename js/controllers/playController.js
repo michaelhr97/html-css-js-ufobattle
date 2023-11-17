@@ -198,7 +198,7 @@ window.addEventListener("DOMContentLoaded", () => {
         theufos = document.querySelectorAll(".ufo");
         if (theufos.length === 0) {
           alert("Game finished!");
-          window.location.href = "/index.html";
+          play();
         }
       }, 1000);
     }
