@@ -1,26 +1,26 @@
-import getRecords from '../services/recordServices.js';
+import getRecords from "../services/recordServices.js";
 
-window.addEventListener('DOMContentLoaded', async () => {
-  'use strict';
+window.addEventListener("DOMContentLoaded", async () => {
+  "use strict";
 
-  let tbody = document.getElementById('records__table--body');
+  let tbody = document.getElementById("records__table--body");
 
   function printRecordIntoHTML(record, index) {
     console.log(record);
-    let tr = document.createElement('tr');
-    let tdId = document.createElement('td');
-    let tdUser = document.createElement('td');
-    let tdPoints = document.createElement('td');
-    let tdUfos = document.createElement('td');
-    let tdSecs = document.createElement('td');
-    let tdDate = document.createElement('td');
+    let tr = document.createElement("tr");
+    let tdId = document.createElement("td");
+    let tdUser = document.createElement("td");
+    let tdPoints = document.createElement("td");
+    let tdUfos = document.createElement("td");
+    let tdSecs = document.createElement("td");
+    let tdDate = document.createElement("td");
 
-    tdId.classList.add('records__table--body--option');
-    tdUser.classList.add('records__table--body--option');
-    tdPoints.classList.add('records__table--body--option');
-    tdUfos.classList.add('records__table--body--option');
-    tdSecs.classList.add('records__table--body--option');
-    tdDate.classList.add('records__table--body--option');
+    tdId.classList.add("records__table--body--option");
+    tdUser.classList.add("records__table--body--option");
+    tdPoints.classList.add("records__table--body--option");
+    tdUfos.classList.add("records__table--body--option");
+    tdSecs.classList.add("records__table--body--option");
+    tdDate.classList.add("records__table--body--option");
 
     tdId.innerText = index + 1;
     tdUser.innerText = record.username;

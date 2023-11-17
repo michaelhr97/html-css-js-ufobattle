@@ -1,12 +1,12 @@
-import registerUser from '../services/registerService.js';
+import registerUser from "../services/registerService.js";
 
-window.addEventListener('DOMContentLoaded', () => {
-  'use strict';
+window.addEventListener("DOMContentLoaded", () => {
+  "use strict";
 
-  let form = document.getElementById('register__page--form');
-  let buttonSubmit = document.getElementById('register__page--button');
-  let inputs = document.querySelectorAll('input');
-  let passwordInputs = document.querySelectorAll('input[type=password]');
+  let form = document.getElementById("register__page--form");
+  let buttonSubmit = document.getElementById("register__page--button");
+  let inputs = document.querySelectorAll("input");
+  let passwordInputs = document.querySelectorAll("input[type=password]");
 
   function areAllInputsFilled() {
     let numberInputsNotValid = 0;
@@ -24,7 +24,7 @@ window.addEventListener('DOMContentLoaded', () => {
     return passwordInputs[0].value === passwordInputs[1].value;
   }
 
-  form.addEventListener('submit', async (event) => {
+  form.addEventListener("submit", async (event) => {
     event.preventDefault();
 
     if (!arePasswordsValuesEqual()) {
@@ -33,9 +33,9 @@ window.addEventListener('DOMContentLoaded', () => {
     }
 
     try {
-      let username = document.getElementById('username').value;
-      let email = document.getElementById('email').value;
-      let password = document.getElementById('password').value;
+      let username = document.getElementById("username").value;
+      let email = document.getElementById("email").value;
+      let password = document.getElementById("password").value;
 
       let data = { username, email, password };
       let message = await registerUser(data);
@@ -45,20 +45,20 @@ window.addEventListener('DOMContentLoaded', () => {
         return;
       }
 
-      window.location.href = '../../html/login.html';
+      window.location.href = "../../html/login.html";
     } catch (error) {
-      alert('Unexpected error has happened');
+      alert("Unexpected error has happened");
     }
   });
 
   inputs.forEach((input) => {
-    input.addEventListener('input', () => {
+    input.addEventListener("input", () => {
       if (areAllInputsFilled()) {
-        buttonSubmit.removeAttribute('disabled');
+        buttonSubmit.removeAttribute("disabled");
         return;
       }
 
-      buttonSubmit.setAttribute('disabled', true);
+      buttonSubmit.setAttribute("disabled", true);
     });
   });
 });
