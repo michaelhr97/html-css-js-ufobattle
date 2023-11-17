@@ -5,7 +5,7 @@ window.addEventListener("DOMContentLoaded", () => {
     "navbar__nav-authentication"
   );
 
-  if (localStorage.getItem("token")) {
+  if (sessionStorage.getItem("token")) {
     let navItemLogout = document.createElement("li");
     navItemLogout.classList.add("nav-item");
 
@@ -17,7 +17,7 @@ window.addEventListener("DOMContentLoaded", () => {
     navAuthentication.appendChild(navLinkLogout);
 
     navLinkLogout.addEventListener("click", () => {
-      localStorage.removeItem("token");
+      sessionStorage.removeItem("token");
       window.location.href = "/index.html";
     });
   } else {

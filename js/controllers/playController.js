@@ -1,41 +1,45 @@
-window.addEventListener('DOMContentLoaded', () => {
-  ('use strict');
+window.addEventListener("DOMContentLoaded", () => {
+  ("use strict");
 
   const DEFAULT_INITIAL_TIME = 60;
   const DEFAULT_INITIAL_NUMBER_UFOS = 1;
 
   let pid;
-  let time = document.getElementById('time');
-  let score = document.getElementById('score');
+  let time = document.getElementById("time");
+  let score = document.getElementById("score");
   let currentScore = 0;
   let horizontalStep = 5;
   let verticalStep = 5;
   let missilelaunched = false;
-  let themissile = document.getElementById('missile');
+  let themissile = document.getElementById("missile");
   let theufos = [];
   let ufoHorizontalSteps = [];
 
   function setUp() {
-    let initialTime = localStorage.getItem('time') || DEFAULT_INITIAL_TIME;
+    let initialTime = sessionStorage.getItem("time") || DEFAULT_INITIAL_TIME;
     time.innerText = initialTime;
 
-    document.getElementById('score').innerText = currentScore;
+    document.getElementById("score").innerText = currentScore;
 
-    let initialUfos = localStorage.getItem('totalufo') || DEFAULT_INITIAL_NUMBER_UFOS;
-    let ufoContainer = document.getElementById('play__ufos');
+    let initialUfos =
+      sessionStorage.getItem("totalufo") || DEFAULT_INITIAL_NUMBER_UFOS;
+    let ufoContainer = document.getElementById("play__ufos");
     for (let i = 0; i < initialUfos; i++) {
-      let ufo = document.createElement('img');
-      ufo.classList.add('ufo');
-      ufo.src = '../assets/ufo.png';
+      let ufo = document.createElement("img");
+      ufo.classList.add("ufo");
+      ufo.src = "../assets/ufo.png";
       ufo.style.left = `${Math.floor(Math.random() * window.innerWidth)}px`;
       ufo.style.bottom = `${Math.floor(Math.random() * window.innerHeight)}px`;
-      ufo.style.width = '60px';
+      ufo.style.width = "60px";
 
       ufoContainer.appendChild(ufo);
     }
 
-    ufoHorizontalSteps = Array.from({ length: initialUfos }, () => horizontalStep);
-    theufos = document.querySelectorAll('.ufo');
+    ufoHorizontalSteps = Array.from(
+      { length: initialUfos },
+      () => horizontalStep
+    );
+    theufos = document.querySelectorAll(".ufo");
     console.log(theufos);
   }
 
@@ -46,7 +50,7 @@ window.addEventListener('DOMContentLoaded', () => {
       time.innerText = currentTime;
     } else {
       clearInterval(pid);
-      alert('Game Over!');
+      alert("Game Over!");
     }
   }
 
@@ -62,17 +66,22 @@ window.addEventListener('DOMContentLoaded', () => {
   }
 
   function launchUFOs() {
-    theufos = document.querySelectorAll('.ufo');
+    theufos = document.querySelectorAll(".ufo");
     theufos.forEach((ufo, index) => setInterval(() => moveUFO(ufo, index), 25));
   }
 
   function moveUFO(ufo, index) {
     let rightWindowLimit = window.innerWidth;
     let ufoComputedStyle = window.getComputedStyle(ufo);
-    let ufoHorizontalPosition = Number.parseInt(ufoComputedStyle.getPropertyValue('left'));
-    let ufoWidth = Number.parseInt(ufoComputedStyle.getPropertyValue('width'));
+    let ufoHorizontalPosition = Number.parseInt(
+      ufoComputedStyle.getPropertyValue("left")
+    );
+    let ufoWidth = Number.parseInt(ufoComputedStyle.getPropertyValue("width"));
 
-    if (ufoHorizontalPosition + ufoWidth + 8 > rightWindowLimit || ufoHorizontalPosition < 8) {
+    if (
+      ufoHorizontalPosition + ufoWidth + 8 > rightWindowLimit ||
+      ufoHorizontalPosition < 8
+    ) {
       ufoHorizontalSteps[index] = -ufoHorizontalSteps[index];
     }
 
@@ -82,7 +91,9 @@ window.addEventListener('DOMContentLoaded', () => {
 
   function moveMissileLeft() {
     let missileComputedStyle = window.getComputedStyle(themissile);
-    let missileHorizontalPosition = Number.parseInt(missileComputedStyle.getPropertyValue('left'));
+    let missileHorizontalPosition = Number.parseInt(
+      missileComputedStyle.getPropertyValue("left")
+    );
 
     if (missileHorizontalPosition > 8) {
       missileHorizontalPosition -= horizontalStep;
@@ -93,8 +104,12 @@ window.addEventListener('DOMContentLoaded', () => {
   function moveMissileRight() {
     let rightWindowLimit = window.innerWidth;
     let missileComputedStyle = window.getComputedStyle(themissile);
-    let missileHorizontalPosition = Number.parseInt(missileComputedStyle.getPropertyValue('left'));
-    let missileWidth = Number.parseInt(missileComputedStyle.getPropertyValue('width'));
+    let missileHorizontalPosition = Number.parseInt(
+      missileComputedStyle.getPropertyValue("left")
+    );
+    let missileWidth = Number.parseInt(
+      missileComputedStyle.getPropertyValue("width")
+    );
 
     if (missileHorizontalPosition + missileWidth + 8 < rightWindowLimit) {
       missileHorizontalPosition += horizontalStep;
@@ -106,22 +121,37 @@ window.addEventListener('DOMContentLoaded', () => {
     let missileComputedStyle = window.getComputedStyle(themissile);
 
     let hit;
-    let missileHorizontalPosition = Number.parseInt(missileComputedStyle.getPropertyValue('left'));
-    let missileVerticalPosition = Number.parseInt(missileComputedStyle.getPropertyValue('bottom'));
-    let missileWidth = Number.parseInt(missileComputedStyle.getPropertyValue('width'));
-    let missileHeigth = Number.parseInt(missileComputedStyle.getPropertyValue('height'));
+    let missileHorizontalPosition = Number.parseInt(
+      missileComputedStyle.getPropertyValue("left")
+    );
+    let missileVerticalPosition = Number.parseInt(
+      missileComputedStyle.getPropertyValue("bottom")
+    );
+    let missileWidth = Number.parseInt(
+      missileComputedStyle.getPropertyValue("width")
+    );
+    let missileHeigth = Number.parseInt(
+      missileComputedStyle.getPropertyValue("height")
+    );
 
     for (let ufo of theufos) {
       let ufoComputedStyle = window.getComputedStyle(ufo);
 
-      let ufoHorizontalPosition = Number.parseInt(ufoComputedStyle.getPropertyValue('left'));
-      let ufoVerticalPosition = Number.parseInt(ufoComputedStyle.getPropertyValue('bottom'));
-      let ufoWidth = Number.parseInt(ufoComputedStyle.getPropertyValue('width'));
+      let ufoHorizontalPosition = Number.parseInt(
+        ufoComputedStyle.getPropertyValue("left")
+      );
+      let ufoVerticalPosition = Number.parseInt(
+        ufoComputedStyle.getPropertyValue("bottom")
+      );
+      let ufoWidth = Number.parseInt(
+        ufoComputedStyle.getPropertyValue("width")
+      );
 
       hit =
         missileVerticalPosition + missileHeigth >= ufoVerticalPosition &&
         missileHorizontalPosition + missileWidth / 2 >= ufoHorizontalPosition &&
-        missileVerticalPosition + missileWidth / 2 <= ufoVerticalPosition + ufoWidth &&
+        missileVerticalPosition + missileWidth / 2 <=
+          ufoVerticalPosition + ufoWidth &&
         missileVerticalPosition <= ufoVerticalPosition;
 
       if (hit) {
@@ -139,7 +169,9 @@ window.addEventListener('DOMContentLoaded', () => {
     let topWindowLimit = window.innerHeight;
     let missileComputedStyle = window.getComputedStyle(themissile);
 
-    let missileVerticalPosition = Number.parseInt(missileComputedStyle.getPropertyValue('bottom'));
+    let missileVerticalPosition = Number.parseInt(
+      missileComputedStyle.getPropertyValue("bottom")
+    );
 
     if (missileVerticalPosition < topWindowLimit) {
       missileVerticalPosition += verticalStep;
@@ -160,13 +192,13 @@ window.addEventListener('DOMContentLoaded', () => {
         updateScore();
       }
 
-      result.target.src = '../../assets/explosion.gif';
+      result.target.src = "../../assets/explosion.gif";
       setTimeout(() => {
         result.target.remove();
-        theufos = document.querySelectorAll('.ufo');
+        theufos = document.querySelectorAll(".ufo");
         if (theufos.length === 0) {
-          alert('Game finished!');
-          play();
+          alert("Game finished!");
+          window.location.href = "/index.html";
         }
       }, 1000);
     }
@@ -182,13 +214,13 @@ window.addEventListener('DOMContentLoaded', () => {
 
     if (!missilelaunched) {
       switch (code) {
-        case 'ArrowLeft':
+        case "ArrowLeft":
           moveMissileLeft();
           break;
-        case 'ArrowRight':
+        case "ArrowRight":
           moveMissileRight();
           break;
-        case ' ':
+        case " ":
           pullTrigger();
           break;
         default:
@@ -198,6 +230,6 @@ window.addEventListener('DOMContentLoaded', () => {
   }
   pid = setInterval(updateTimer, 1000);
 
-  document.addEventListener('keydown', keyboardController, false);
+  document.addEventListener("keydown", keyboardController, false);
   play();
 });
